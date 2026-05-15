@@ -81,7 +81,7 @@ from concurrent.futures import ThreadPoolExecutor
 INPUT_FILE = "ips.txt"
 OUTPUT_FILE = "good_ips.txt"
 
-LIMIT = 500
+LIMIT = 5000
 TOP_LIMIT = 50
 PORT = 443
 TIMEOUT = 2
@@ -205,7 +205,7 @@ IPهایی که TLS و SNI موفق دارند
 تغییر تعداد IP تست
 داخل اسکریپت:
 ```Python
-LIMIT = 500
+LIMIT = 5000
 ```
 مثلاً:
 100
