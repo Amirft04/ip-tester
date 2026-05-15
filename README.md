@@ -45,28 +45,34 @@
 pkg update && pkg upgrade -y
 pkg install python openssl git -y
 termux-setup-storage
+```
 
 وقتی درخواست دسترسی به حافظه آمد:
 روی Allow بزنید
+
 ساخت فایل IPها
 فایل IP بسازید:
-Bash
+```Bash
 nano ips.txt
+```
 سپس IPها را داخلش وارد کنید:
-Plain text
+```Plain text
 1.1.1.1
 8.8.8.8
 104.16.0.1
+```
 ذخیره فایل:
 CTRL + X
 سپس Y
 سپس Enter
+
 ساخت اسکریپت
 فایل اسکریپت را بسازید:
-Bash
+```Bash
 nano tester_pro.py
+```
 سپس کل کد زیر را داخلش Paste کنید:
-Python
+```Python
 import socket
 import time
 import ssl
@@ -173,55 +179,66 @@ with open(OUTPUT_FILE, "w") as f:
 print("\n--- DONE ---")
 print(f"Valid IPs: {len(results)}")
 print(f"Saved top {len(best)} to {OUTPUT_FILE}")
+```
 
 ذخیره:
 CTRL + X
 سپس Y
 سپس Enter
+
 اجرای اسکریپت
-Bash
+```Bash
 python tester_pro.py
+```
 فایل خروجی
 بعد از پایان تست:
-Plain text
+```Plain text
 good_ips.txt
+```
 ساخته می‌شود.
 این فایل شامل:
 بهترین IPها
 سریع‌ترین IPها
 IPهایی که TLS و SNI موفق دارند
 است.
+
 تغییر تعداد IP تست
 داخل اسکریپت:
-Python
+```Python
 LIMIT = 200
+```
 مثلاً:
 100
 500
 1000
 تغییر تعداد خروجی
-Python
+```Python
 TOP_LIMIT = 50
+```
 تغییر SNI
 داخل اسکریپت:
-Python
+```Python
 SNI_HOST = "www.google.com"
+```
 مثال:
-Python
+```Python
 SNI_HOST = "www.cloudflare.com"
+```
 یا:
-Python
+```Python
 SNI_HOST = "www.microsoft.com"
+```
 نکات مهم
 Ping پایین همیشه به معنی usable بودن VPN نیست
 بعضی IPها فقط TCP باز دارند ولی TLS رد می‌شود
 CDN Routing پویاست
 بهتر است هر چند وقت IPها دوباره تست شوند
 فایل‌های پروژه
-Plain text
+```Plain text
 ips.txt
 tester_pro.py
 good_ips.txt
+```
 نتیجه
 این اسکریپت:
 خیلی بهتر از ping ساده عمل می‌کند
